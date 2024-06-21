@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USSD Handler</title>
+</head>
+<body>
+    <h1>USSD Code</h1>
+    <p id="ussd-code"></p>
+    <script>
+        // Obtener el código USSD de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const ussdCode = urlParams.get('ussd');
+        document.getElementById('ussd-code').textContent = ussdCode;
+
+        // Redirigir a la aplicación de teléfono con el código USSD
+        if (ussdCode) {
+            window.location.href = `tel:${ussdCode}`;
+        }
+    </script>
+</body>
+</html>
